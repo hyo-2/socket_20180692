@@ -53,7 +53,27 @@ int main(){
 
 			else if(!strncmp(rcvBuffer, "몇살이야?", strlen("몇살이야?")))
 				strcpy(buffer, "나는 22살이야.");
-			
+
+			else if(!strncasecmp(rcvBuffer, "strlen ", 7) & strlen(rcvBuffer) > 7)
+				sprintf(buffer, "문자열의 길이는 %d.", strlen(rcvBuffer) -7 );
+
+			else if(!strncasecmp(rcvBuffer, "strcmp ", 7)){
+				char *token;
+				char *str[3];
+				int i = 0;
+				token = strtok(rcvBuffer, " ");
+				while(token != NULL){
+					str[i++] = token;
+					token = strtok(NULL, " ");
+				}
+				if(i < 3)
+					sprintf(buffer, "비교하려면 두 문자열이 필요합니다.");
+				else if(!strcmp(str[1], str[2])) 	
+					sprintf(buffer, "%s와 %s는 같은 문자열이다.", str[1], str[2]);
+				else 
+					sprintf(buffer, "%s와 %s는 다른 문자열이다.", str[1], str[2]);
+
+			}
 			else
 				strcpy(buffer, "못 알아듣겠습니다.");
 			n = strlen(buffer);
