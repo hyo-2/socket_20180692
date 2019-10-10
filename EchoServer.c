@@ -48,6 +48,12 @@ int main(){
 			else if(!strncmp(rcvBuffer, "안녕하세요", strlen("안녕하세요")))
 				strcpy(buffer, "안녕하세요. 만나서 반가워요.");
 
+			else if(!strncmp(rcvBuffer, "이름이 머야?", strlen("이름이 머야?")))
+				strcpy(buffer, "내 이름은 이효은.");
+
+			else if(!strncmp(rcvBuffer, "몇살이야?", strlen("몇살이야?")))
+				strcpy(buffer, "나는 22살이야.");
+			
 			else
 				strcpy(buffer, "못 알아듣겠습니다.");
 			n = strlen(buffer);
